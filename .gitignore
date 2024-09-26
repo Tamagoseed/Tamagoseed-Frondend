@@ -1,0 +1,24 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Cache
+.cache/
+
+# Yarn error log
+yarn-error.log
+
+# TypeScript artifacts
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
