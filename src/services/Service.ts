@@ -5,6 +5,7 @@ const api = axios.create({
 })
 
 export const cadastrarCliente = async(url: string, dados: Object, setDados: Function) => {
+ console.log(url, dados, setDados)
   const resposta = await api.post(url, dados)
   setDados(resposta.data)
 }
