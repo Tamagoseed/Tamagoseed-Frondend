@@ -1,5 +1,5 @@
 <h1 align="center">
-	<img src="./src/assets/logosTamagoseedwhite.png" height="600" width="600"/>
+	<img src="./src/assets/logosrenovatechwhite.png" height="600" width="600"/>
 </h1>
 
 ---
@@ -100,7 +100,7 @@ IDE: Visual Studio Code
   <img align="center" alt="MySQL" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg">
 </div><br>
 
-- Deploy: Netlify [Link do site final](https://Tamagoseed.netlify.app/)
+- Deploy: Netlify [Link do site final](https://renovatech.netlify.app/)
 
 -- BSM: Orientação ao futuro, responsabilidade pessoal, mentalidade de crescimento, persistência, trabalho em equipe, atenção ao detalhe, proatividade e comunicação.
 
@@ -109,14 +109,14 @@ IDE: Visual Studio Code
 # 👤 Autores
 
 <table>
-<!-- 	<tr>
+	<tr>
 		<td align="center">
 			<a href="https://github.com/Ana-Paola24">
 				<img
 					width="100px"
 					height="auto"
 					src="https://avatars.githubusercontent.com/u/165614765?v=4"
-					alt="Ana Paola"
+					alt="Melissa Duarte"
 				/>
 				<br />
 				<sub>
@@ -194,14 +194,53 @@ IDE: Visual Studio Code
 				</sub>
 			</a>
 		</td>
-	</tr> -->
+	</tr>
 </table>
 
+---
 
+# 🤝 Orientadores
+
+Instrutores que nos acompanharam do começo ao fim do projeto.
+
+<table>
+  <tr>
+          <td align="center">
+			<a href="https://github.com/jacquelinesantana">
+				<img
+					width="100px"
+					height="auto"
+					src="https://avatars.githubusercontent.com/u/8031302?v=4"
+					alt="Victor Santos"
+				/>
+				<br />
+				<sub>
+					<b>Jacqueline<br>Hernandes</b>
+				</sub>
+			</a>
+		</td>
+    <td align="center">
+			<a href="https://github.com/tjfaccipieri">
+				<img
+					width="100px"
+					height="auto"
+					src="https://avatars.githubusercontent.com/u/8996967?v=4"
+					alt="Victor Santos"
+				/>
+				<br />
+				<sub>
+					<b>Thiago<br>Faccipieri</b>
+				</sub>
+			</a>
+		</td></td>	  
+</tr>
+</table>
+
+---
 
 # 📜 Licença
 
-Copyright :copyright: 2024 [Tamagoseed - Joao Lírio](https://github.com/JLirio/Tamagoseed/).
+Copyright :copyright: 2024 [Renovatech - Melissa Duarte, Gbariel Ângelo, João Lirio , Matheus Alcântara, Leonardo de Oliveira, Maria Eduarda, Natasha Lorenzano](https://github.com/RenovaTech-06/react-renovatech).
 <br/>
 <br/>
 

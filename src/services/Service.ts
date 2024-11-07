@@ -11,6 +11,7 @@ export const cadastrarCliente = async(url: string, dados: Object, setDados: Func
 
 export const login = async(url: string, dados: Object, setDados: Function) => {
   const resposta = await api.post(url, dados)
+  console.log(resposta.data); // adicionado para saber o login
   setDados(resposta.data)
 }
 

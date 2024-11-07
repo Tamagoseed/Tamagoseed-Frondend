@@ -21,8 +21,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     const [cliente, setCliente] = useState<ClienteLogin>({
         id: 0,
-        cnpj:"",
-        razaoSocial: "",
+        cpf:"",
+        nomeCompleto: "",
         email: "",
         senha: "",
         foto: "",
@@ -36,6 +36,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         try {
             await login(`/clientes/logar`, userLogin, setCliente)
             toastAlerta('Cliente logado com sucesso','sucesso')
+            console.log(cliente.token); // Adicionado esta linha para saber o login
             setIsLoading(false)
 
         } catch (error) {
@@ -48,8 +49,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     function handleLogout() {
         setCliente({
             id: 0,
-            cnpj:"",
-            razaoSocial: "",
+            cpf:"",
+            nomeCompleto: "",
             email: "",
             senha: "",
             foto: "",

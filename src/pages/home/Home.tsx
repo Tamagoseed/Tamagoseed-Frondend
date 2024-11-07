@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'; // Adicionei esta linha para o FEED
 import './Home.css';
 import ModalServico from '../../components/servicos/modalServico/ModalServico';
 
@@ -42,8 +43,20 @@ function Home() {
   }
 
   useEffect(() => {
-    buscarServico();
-  }, [servicos.length]);
+    const fetchServicos = async () => {
+      await buscarServico();
+  
+      if (window.location.hash === '#contato') {
+        const contatoSection = document.getElementById('contato');
+        if (contatoSection) {
+          contatoSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+  
+    fetchServicos();
+  }, []);
+  
 
   function Valores({ handleClick, texto }) {
     const handleItemClick = (valor) => {
@@ -141,16 +154,23 @@ function Home() {
        <div className=" absolute inset-0 flex justify-end items-center bg-green-400 bg-opacity-20 ">
           <div className="flex flex-col items-center text-white text-center mx-auto md:ml-auto md:mr-28  md:p-0">
             <img
-              src={logo}
-              alt="logo"
+              src="https://imgur.com/1jCCY5a.jpeg"
+              alt="LogoTamago"
               className="mb-4 h-95  mx-auto md:mx-0"
             />
             <div className='container max-w- md:mr-0'>
-              <p className=" mb-2 text-5xl text-white font-bold">Impulsionando Inovação</p>
-              <p className="mb-4 text-5xl text-white font-bold">Sustentável</p>
+              <p className=" mb-2 text-5xl text-white font-bold">Tamagoseed</p>
+              <p className="mb-4 text-5xl text-white font-bold">Pensando Verde</p>
             </div>
+            {/* Adicione o Link aqui */}
+            <div className="flex flex-col items-center">
+              <Link to="/feed" className="text-lg text-blue-500 hover:underline mb-4">
+                Ir para o Feed
+                </Link>
+              </div>
           </div>
         </div>
+        
         
         
       </div>
@@ -168,11 +188,7 @@ function Home() {
           />    
           </div> 
       )}
-  {/*
-  DEIXAR COMENTADO PARA RODAR SEM ERROS
-
-  
-  <div className='container flex mx-auto my-4'>
+  {/* <div className='container flex mx-auto my-4'>
       <Swiper
         loop={true}
         pagination={{
@@ -194,8 +210,15 @@ function Home() {
       }}
         modules={[Pagination]}
         className="mySwiper p-6"
+
+        {/* { servicos.map (servico) => (
+          <SwiperSlide key=(servico.id)} >
+          <CardServicos post={servico} />
+          </SwiperSlide>
+        ) 
+        )}}
       >
-       {servicos.map((servico) => (
+        {servicos.map((servico) => (
           <SwiperSlide key={servico.id} >
             <CardServicos post={servico} />
           </SwiperSlide>
@@ -209,15 +232,12 @@ function Home() {
     <div className="lg:flex lg:items-center lg:justify-between">
       <div className="lg:w-1/2">
         <div className="flex gap-x-2 items-center justify-center mb-2">
-          <h2 className="text-neutral-950 text-[2.9rem] font-bold">Missão</h2>
+          <h2 className="text-neutral-950 text-[2.9rem] font-bold">Nossa Missão</h2>
         </div>
         <p className="text-neutral-950 leading-7 py-6  text-left">
-          Proporcionar soluções eficientes e personalizadas para nossos
-          clientes, oferecendo uma gestão de serviços de alta qualidade que
-          atenda às necessidades específicas de cada setor de atuação. Nosso
-          compromisso é entregar resultados que impulsionem o crescimento e
-          a inovação, sempre focados na satisfação e no sucesso dos nossos
-          clientes.
+        Com nosso aplicativo, adquira sua semente e inicie sua jornada de cultivo. 
+        Aprenda a cuidar de suas plantas enquanto contribui para a biodiversidade e para a saúde 
+        do nosso planeta. Juntos, podemos incentivar práticas sustentáveis e cultivar um futuro melhor para todos.
         </p>
       </div>
       <div className="lg:w-1/2 flex justify-center">
@@ -244,12 +264,10 @@ function Home() {
           <h2 className="text-neutral-950 text-[2.9rem] font-bold">Visão</h2>
         </div>
         <p className="text-neutral-950 text-right leading-7 py-6 ">
-          Ser reconhecida como líder no mercado de gestão de serviços,
-          destacando-se pela excelência no atendimento ao cliente e pela
-          capacidade de adaptação às demandas dinâmicas do mercado.
-          Aspiramos a ser a referência em inovação e qualidade, criando
-          parcerias duradouras e promovendo o desenvolvimento contínuo de
-          nossos serviços e tecnologias.
+        Nossa visão é criar um espaço onde o amor pela natureza se encontra com a tecnologia, 
+        promovendo um futuro mais verde e sustentável. Queremos que cada usuário se sinta 
+        capacitado a fazer a diferença, não apenas em seu lar, mas em toda a comunidade. 
+        Com nosso aplicativo, todos têm a oportunidade de serem agentes de mudança na preservação ambiental.
         </p>
       </div>
     </div>
@@ -258,7 +276,7 @@ function Home() {
         <Valores handleClick={handleClick} texto={texto} />
       </section>
 
-      <Contato/>   
+      <Contato />   
       </>
     );
 }

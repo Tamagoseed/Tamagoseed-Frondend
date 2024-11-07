@@ -14,6 +14,10 @@ import ListaServicos from './components/servicos/listarServico/listarServico'
 import FormularioServico from './components/servicos/formularioServico/formularioServico'
 import DeletarServico from './components/servicos/deletarServico/deletarServico'
 import Perfil from './pages/perfil/Perfil'
+import Feed from './pages/feed/Feed'  // Importe o componente Feed
+import Avaliacao from './pages/avaliacao/Avaliacao'  // Importe a página de avaliação
+import Catalogo from './pages/catalogo/Catalogo'  // Importe a página de catálogo
+
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import { ToastContainer } from 'react-toastify'
@@ -29,7 +33,7 @@ function App() {
         <Navbar />
           <div className='min-h-[80vh]'>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={< Home />} />
               <Route path="/sobre" element={<Sobre />} />
               <Route path="/contato" element={<Contato />} />
               <Route path="/cadastro" element={<Cadastro />} />
@@ -44,6 +48,10 @@ function App() {
               <Route path="/editarServico/:id" element={<FormularioServico />} />
               <Route path="/servicosSetor/:id" element={<ServicosPorSetor />} />
               <Route path="/perfil" element={<Perfil />} />
+               {/* Novas rotas incluidas*/}
+              <Route path="/feed" element={<Feed />} />
+              <Route path="/avaliacao" element={<Avaliacao />} />
+              <Route path="/catalogo" element={<Catalogo />} />
             </Routes>
           </div>
           <Footer />

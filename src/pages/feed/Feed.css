@@ -1,0 +1,136 @@
+.feed-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    position: relative; /* Para que o menu lateral posicione corretamente */
+}
+
+.feed-header {
+    display: flex; /* Flex para alinhar o ícone do menu e a barra de navegação */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between; /* Espaça o conteúdo entre os lados */
+}
+
+.menu-icon {
+    cursor: pointer; /* Cursor em forma de mão para o ícone de menu */
+    font-size: 24px; /* Tamanho do ícone */
+    z-index: 100; /* Para garantir que fique acima de outros elementos */
+}
+
+.sidebar {
+    position: absolute; /* Posição fixa em relação ao feed-container */
+    top: 60px; /* Abaixo da barra de navegação */
+    left: 0; /* Alinhado à esquerda */
+    background-color: white; /* Fundo branco */
+    padding: 20px; /* Espaço interno */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
+    z-index: 100; /* Para garantir que fique acima de outros elementos */
+}
+
+.nav-button {
+    display: flex; /* Alinha o ícone e texto */
+    align-items: center; /* Centraliza verticalmente */
+    text-decoration: none;
+    color: #4caf50;
+    font-weight: bold;
+    padding: 10px; /* Espaço interno */
+    margin-bottom: 10px; /* Espaço entre os botões */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background 0.2s; /* Efeito de transição */
+}
+
+.nav-button:hover {
+    background-color: #e0f7e9; /* Fundo ao passar o mouse */
+}
+
+.feed-welcome { 
+    position: relative; /* Muda para posição relativa */
+    top: 0; /* Para que não se desloque verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, 0); /* Ajusta a posição para o centro horizontalmente */
+    text-align: center; /* Centraliza o texto */
+    font-size: 1.5em; /* Tamanho da fonte */
+    background: transparent; /* Fundo totalmente transparente */
+    padding: 10px 0; /* Espaço em cima e embaixo do texto */
+    width: 100%; /* Ocupa toda a largura */
+    z-index: 10; /* Garante que fique acima de outros elementos */
+    margin-top: 10px; /* Espaço acima, se necessário */
+}
+
+.feed-content {
+    margin: 20px 0;
+}
+
+.post-list {
+    display: flex; /* Flex para alinhar as postagens uma embaixo da outra */
+    flex-direction: column; /* Coloca as postagens em uma coluna */
+    gap: 20px; /* Espaço entre as postagens */
+}
+
+.post-card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex; /* Flex para alinhar a imagem e a descrição lado a lado */
+    gap: 20px; /* Espaço entre a imagem e a descrição */
+    position: relative; /* Permite posicionar o título acima da imagem */
+}
+
+.post-image {
+    width: 150px; /* Define a largura */
+    height: 150px; /* Define a altura */
+    object-fit: cover; /* Garante que a imagem mantenha a proporção, cortando o que sobrar */
+    border-radius: 8px; /* Mantém os cantos arredondados, se desejado */
+}
+
+.post-title {
+    text-align: center; /* Centraliza o título acima da imagem */
+    margin-bottom: 10px; /* Espaço abaixo do título */
+    position: absolute; /* Título em cima da imagem */
+    top: 10px; /* Ajuste a posição conforme necessário */
+    left: 10px; /* Ajuste a posição conforme necessário */
+    color: white; /* Cor do título */
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para destaque */
+    padding: 5px;
+    border-radius: 5px; /* Arredondar os cantos do fundo */
+}
+
+.post-description {
+    flex: 1; /* Faz a descrição ocupar o espaço restante */
+}
+
+.read-more, .read-less {
+    color: #4caf50;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;  /* Adiciona um pequeno espaço entre a descrição e o link */
+    display: inline-block; /* Para garantir que o link ocupe uma área clicável */
+}
+
+.read-more:hover, .read-less:hover {
+    text-decoration: underline;  /* Sublinha o texto ao passar o mouse */
+    color: #388e3c;  /* Mudança de cor sutil para uma interação mais visual */
+}
+
+.read-more {
+    margin-top: 10px;  /* Espaço para o link "Ler Mais" ficar abaixo da descrição */
+}
+
+.read-less {
+    margin-top: 10px;  /* Espaço para o link "Ler Menos" ficar abaixo da descrição */
+    color: #4caf50; /* Cor verde consistente */
+}
+
+.feed-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.read-more, .read-less {
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}

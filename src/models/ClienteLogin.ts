@@ -1,9 +1,10 @@
 export default interface ClienteLogin {
     id: number;
-    cnpj: string;
-    razaoSocial: string;
+    cpf: string;
+    nomeCompleto: string;
     email: string;
     senha: string;
     foto: string;
     token: string;
+    dataCadastro?: string;
   }

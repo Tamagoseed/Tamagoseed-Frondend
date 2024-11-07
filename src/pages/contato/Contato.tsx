@@ -1,20 +1,21 @@
-import React from 'react'
+import React from 'react';
 
-function Contato() {
+interface ContatoProps {
+  id?: string; // Permite que o id seja opcional
+}
+
+const Contato: React.FC<ContatoProps> = ({ id = "contato" }) => {
   return (
-    <>
-    <div className="container mx-auto px-4 py-12 max-w-9xl  rounded-lg">
+    <div id={id} className="container mx-auto px-4 py-12 max-w-9xl rounded-lg">
       <form>
         <div className="grid grid-cols-1 space-x-4 md:grid-cols-2 gap-8">
-          
-          <div className="flex bg-green-100 ps-4 rounded-lg flex-col justify-center space-y-8 ">
-            <h2 className="text-3xl  font-bold text-green-700">Entre em Contato</h2>
+          <div className="flex bg-green-100 ps-4 rounded-lg flex-col justify-center space-y-8">
+            <h2 className="text-3xl font-bold text-green-700">Entre em Contato</h2>
             <p className="text-lg text-black">
               Agradecemos seu interesse! Se você tiver alguma dúvida, sugestão ou gostaria de saber mais sobre os serviços, por favor, não hesite em nos contatar. Estamos aqui para ajudar e ficaremos felizes em ouvir você.
             </p>
           </div>
 
-          
           <div className="space-y-6">
             <div>
               <label htmlFor="username" className="block text-sm font-medium text-gray-900">Nome</label>
@@ -63,14 +64,14 @@ function Contato() {
           <button
             type="submit"
             className="px-6 py-3 bg-green-700 text-white text-sm font-semibold rounded-md shadow-sm hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-green-500"
-            >
+          >
             Enviar
           </button>
         </div>
       </form>
     </div>
-    </>
-  )
+  );
 }
 
-export default Contato
+export default Contato;
+
