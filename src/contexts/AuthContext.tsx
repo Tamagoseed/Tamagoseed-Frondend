@@ -18,6 +18,7 @@ export const AuthContext = createContext({} as AuthContextProps);
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [cliente, setCliente] = useState<ClienteLogin>({
+    razaoSocial:"",
     id: 0,
     cpf: "",
     nomeCompleto: "",
@@ -59,6 +60,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   function handleLogout() {
     // Limpa os dados do cliente e o token do localStorage
     setCliente({
+      razaoSocial:"",
       id: 0,
       cpf: "",
       nomeCompleto: "",

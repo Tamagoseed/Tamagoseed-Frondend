@@ -9,6 +9,7 @@ function Cadastro() {
 
     const [confirmaSenha, setConfirmaSenha] = useState<string>("");
     const [cliente, setCliente] = useState<Cliente>({
+        razaoSocial:"",
         id: 0,
         cpf: "",
         nomeCompleto: "",
@@ -18,6 +19,7 @@ function Cadastro() {
     });
 
     const [clienteResposta, setClienteResposta] = useState<Cliente>({
+        razaoSocial:"",
         id: 0,
         cpf: "",
         nomeCompleto: "",
