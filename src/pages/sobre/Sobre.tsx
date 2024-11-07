@@ -12,7 +12,6 @@ import dev6 from '../../assets/gabriel.jpg';
 import dev7 from '../../assets/fe.jpg';  
 import dev8 from '../../assets/gustavo.jpg';  
 import dev9 from '../../assets/felipe.jpg'; 
-  
 
 function Sobre() {
   // Colocando as imagens importadas na lista
@@ -38,24 +37,23 @@ function Sobre() {
           Nossa equipe é composta por desenvolvedores altamente comprometidos, atualmente cursando a faculdade na UNICID. Cada membro desempenha um papel específico, abrangendo áreas como desenvolvimento de back-end, front-end e testes. Juntos, nos dedicamos a transformar conceitos em soluções inovadoras, integrando criatividade e comprometimento para alcançar resultados de excelência.
         </p>
       </div>
-      <div className="flex flex-wrap justify-center space-x-2.5">
+      
+      <div className="flex flex-wrap justify-center gap-6">
         {profiles.map((profile, index) => (
           <div key={index} className="flex flex-col items-center mb-8">
             <img 
               src={profile.img} 
               alt={`Profile ${profile.name}`} 
-              className="w-40 h-40 rounded-full object-cover transition-transform duration-200 ease-in-out hover:scale-110"
+              className="w-40 h-40 rounded-full border-4 border-green-500 object-cover transition-transform duration-300 ease-in-out hover:scale-110"
             />
             <div className="mt-2">
-              <p className="font-semibold">{profile.name}</p>
+              <p className="font-semibold text-lg text-gray-800">{profile.name}</p>
             </div>
-            <div className="mt-1">
-              <a href={profile.github} className="text-black-300 hover:underline" target="_blank" rel="noopener noreferrer">
+            <div className="mt-2 flex space-x-4">
+              <a href={profile.github} className="text-black-300 hover:text-black" target="_blank" rel="noopener noreferrer">
                 <GithubLogo size={32} weight="fill" />
               </a>
-            </div>
-            <div className="mt-1 flex items-center">
-              <a href={profile.linkedin} className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">
+              <a href={profile.linkedin} className="text-blue-500 hover:text-blue-700" target="_blank" rel="noopener noreferrer">
                 <LinkedinLogo size={32} weight="fill" />
               </a>
             </div>

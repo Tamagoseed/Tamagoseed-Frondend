@@ -166,6 +166,16 @@ const posts = [
     },
 ];
 
+const PostCard: React.FC<{ post: typeof posts[0] }> = ({ post }) => {
+    return (
+        <div key={post.id} className="post-card">
+            <h3 className="post-title">{post.title}</h3>
+            <img src={post.image} alt={post.title} className="post-image" />
+            <p className="post-description">{post.description}</p>
+        </div>
+    );
+};
+
 const Feed: React.FC = () => {
     const [menuVisible, setMenuVisible] = useState(false); // Para controlar visibilidade do menu lateral
 
@@ -177,18 +187,27 @@ const Feed: React.FC = () => {
     return (
         <div className="feed-container">
             <header className="feed-header">
-                <div className="menu-icon" onClick={toggleMenu}>
+                <div
+                    className="menu-icon"
+                    onClick={toggleMenu}
+                    aria-label="Abrir menu lateral"
+                >
                     &#9776; {/* Ícone de menu */}
                 </div>
                 <nav className="feed-nav">
-                    {/* Caso precise de links de navegação adicionais aqui */}
+                    {/* Links adicionais podem ser colocados aqui */}
                 </nav>
             </header>
 
+            {/* Menu lateral */}
             {menuVisible && (
                 <nav className="sidebar">
-                    <Link to="/perfil" className="nav-button"><FaUser /> Acessar Perfil</Link>
-                    <Link to="/avaliacao" className="nav-button"><FaStar /> Avaliação com Especialista</Link>
+                    <Link to="/perfil" className="nav-button">
+                        <FaUser /> Acessar Perfil
+                    </Link>
+                    <Link to="/avaliacao" className="nav-button">
+                        <FaStar /> Avaliação com Especialista
+                    </Link>
                 </nav>
             )}
 
@@ -197,13 +216,7 @@ const Feed: React.FC = () => {
                 <section className="feed-content">
                     <div className="post-list">
                         {posts.map(post => (
-                            <div key={post.id} className="post-card">
-                                <h3 className="post-title">{post.title}</h3>
-                                <img src={post.image} alt={post.title} className="post-image" />
-                                <p className="post-description">
-                                    {post.description}
-                                </p>
-                            </div>
+                            <PostCard key={post.id} post={post} />
                         ))}
                     </div>
                 </section>

@@ -60,54 +60,64 @@ const Avaliacao: React.FC = () => {
     }, [messages]);
 
     return (
-        <div className="avaliacao-container">
-            <header className="avaliacao-header">
-                <Link to="/feed" className="back-button">
-                    <FaArrowLeft /> Voltar
+        <div className="avaliacao-container bg-gray-100 min-h-screen flex flex-col">
+            <header className="avaliacao-header p-4 bg-green-700 text-white flex items-center justify-between">
+                <Link to="/feed" className="back-button text-lg flex items-center">
+                    <FaArrowLeft className="mr-2" /> Voltar
                 </Link>
-                <h1 className="avaliacao-title">Avaliação com Especialista</h1>
+                <h1 className="avaliacao-title text-xl sm:text-2xl font-bold">Avaliação com Especialista</h1>
             </header>
             
             {/* Texto de orientação */}
-            <div className="avaliacao-orientacao">
+            <div className="avaliacao-orientacao px-4 py-6 text-sm text-center text-gray-700">
                 <p>Aqui você pode tirar suas dúvidas referentes ao plantio de nossas plantas indicadas e descobrir muito mais. Interaja com o nosso chat e aproveite!</p>
             </div>
             
-            <div className="chat-box" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                <main className="chat-container">
-                    <div className="messages-list" ref={chatContainerRef} style={{ overflowY: 'auto', maxHeight: '500px' }}>
+            <div className="chat-box flex-1 p-4">
+                <main className="chat-container bg-white shadow-lg rounded-lg max-w-xl mx-auto">
+                    <div
+                        className="messages-list p-4 overflow-y-auto max-h-96"
+                        ref={chatContainerRef}
+                        style={{ maxHeight: 'calc(100vh - 200px)' }} // Ajusta a altura do chat
+                    >
                         {messages.map((message) => (
-                            <div key={message.id} className={`message ${message.sender}`}>
+                            <div key={message.id} className={`message mb-3 ${message.sender === 'user' ? 'text-right' : 'text-left'}`}>
                                 {message.sender === 'user' ? (
                                     <>
-                                        <FaUserCircle className="message-icon" />
-                                        <span className="message-text">{message.text}</span>
+                                        <FaUserCircle className="message-icon text-xl inline-block" />
+                                        <span className="message-text inline-block max-w-xs bg-blue-500 text-white p-2 rounded-lg mt-1">{message.text}</span>
                                     </>
                                 ) : (
                                     <>
-                                        <FaRobot className="message-icon" />
-                                        <span className="message-text">{message.text}</span>
+                                        <FaRobot className="message-icon text-xl inline-block" />
+                                        <span className="message-text inline-block max-w-xs bg-gray-300 p-2 rounded-lg mt-1">{message.text}</span>
                                     </>
                                 )}
                             </div>
                         ))}
                         <div ref={messagesEndRef} />
                     </div>
-                    <div className="input-container">
+
+                    <div className="input-container p-4 bg-gray-100 flex items-center space-x-2">
                         <input
                             type="text"
                             value={inputValue}
                             onChange={(e) => setInputValue(e.target.value)}
-                            onKeyDown={handleKeyDown} // Adiciona a função de envio com Enter
+                            onKeyDown={handleKeyDown}
                             placeholder="Digite sua mensagem..."
+                            className="flex-1 p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
                         />
-                        <button onClick={handleSendMessage}>
+                        <button
+                            onClick={handleSendMessage}
+                            className="p-2 bg-green-500 text-white rounded-full hover:bg-green-600 focus:outline-none"
+                        >
                             <FaPaperPlane />
                         </button>
                     </div>
                 </main>
             </div>
-            <footer className="avaliacao-footer">
+
+            <footer className="avaliacao-footer p-4 text-center text-sm text-gray-600">
                 <p>&copy; 2024 Tamagoseed</p>
             </footer>
         </div>

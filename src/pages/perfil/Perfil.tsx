@@ -12,34 +12,50 @@ const Perfil: React.FC = () => {
     const emailPadrao = 'nao.cadastrado@example.com'; // Email padrão
 
     return (
-        <div className="perfil-container">
+        <div className="perfil-container mx-auto max-w-4xl px-4 py-6">
             {/* Botão de voltar */}
-            <header className="perfil-header">
-                <Link to="/feed" className="back-button">
-                    <FaArrowLeft /> Voltar
+            <header className="perfil-header mb-6">
+                <Link to="/feed" className="flex items-center text-green-600 hover:text-green-800">
+                    <FaArrowLeft className="mr-2" /> Voltar
                 </Link>
             </header>
 
-            <h2 className="perfil-title">Perfil do Usuário</h2>
-            <div className="perfil-info">
-                <div className="perfil-item">
-                    <strong>Nome Completo:</strong> {cliente.nomeCompleto || 'Visitante'}
+            <h2 className="perfil-title text-3xl font-bold text-center mb-8 text-gray-800">Perfil do Usuário</h2>
+
+            <div className="perfil-info space-y-4">
+                <div className="perfil-item flex justify-between">
+                    <strong className="text-lg text-gray-700">Nome Completo:</strong>
+                    <span className="text-lg text-gray-600">{cliente.nomeCompleto || 'Visitante'}</span>
                 </div>
-                <div className="perfil-item">
-                    <strong>Cadastrado Desde:</strong> {cliente.dataCadastro || dataPadrao}
+
+                <div className="perfil-item flex justify-between">
+                    <strong className="text-lg text-gray-700">Cadastrado Desde:</strong>
+                    <span className="text-lg text-gray-600">{cliente.dataCadastro || dataPadrao}</span>
                 </div>
+
                 {cliente.token && (
                     <>
-                        <div className="perfil-item">
-                            <strong>CPF:</strong> {cliente.cpf}
+                        <div className="perfil-item flex justify-between">
+                            <strong className="text-lg text-gray-700">CPF:</strong>
+                            <span className="text-lg text-gray-600">{cliente.cpf}</span>
                         </div>
-                        <div className="perfil-item">
-                            <strong>Email:</strong> {cliente.email || emailPadrao}
+
+                        <div className="perfil-item flex justify-between">
+                            <strong className="text-lg text-gray-700">Email:</strong>
+                            <span className="text-lg text-gray-600">{cliente.email || emailPadrao}</span>
                         </div>
                     </>
                 )}
-                <div className="perfil-item">
-                    <strong>Foto:</strong> {cliente.foto ? <img src={cliente.foto} alt="Foto do usuário" className="perfil-photo" /> : 'Nenhuma foto disponível'}
+
+                <div className="perfil-item flex justify-between">
+                    <strong className="text-lg text-gray-700">Foto:</strong>
+                    <div className="perfil-photo">
+                        {cliente.foto ? (
+                            <img src={cliente.foto} alt="Foto do usuário" className="w-24 h-24 object-cover rounded-full" />
+                        ) : (
+                            'Nenhuma foto disponível'
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
